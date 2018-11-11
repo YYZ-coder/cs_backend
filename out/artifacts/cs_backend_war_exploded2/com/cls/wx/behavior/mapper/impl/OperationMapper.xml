@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cls.wx.behavior.mapper.OperationMapper">
+
+    <resultMap id="BaseResultMap" type="com.cls.wx.behavior.entity.UserOperation">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+
+        <result column="behavior" property="behavior" jdbcType="INT"/>
+        <result column="status" property="status" jdbcType="INT"/>
+        <result column="user_id" property="userId" jdbcType="INT"/>
+        <result column="type" property="type" jdbcType="INT"/>
+        <result column="obj_id" property="objId" jdbcType="INT"/>
+        <result column="count" property="count" jdbcType="INT"/>
+        <result column="order_id" property="orderId" jdbcType="INT"/>
+
+        <result column="update_user" property="updateUser" jdbcType="INT"/>
+        <result column="update_time" property="updateTime" jdbcType="INT"/>
+        <result column="create_user" property="createUser" jdbcType="INT"/>
+        <result column="create_time" property="createTime" jdbcType="INT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,
+
+        behavior,
+        status,
+        user_id,
+        type,
+        obj_id,
+        count,
+        order_id,
+
+        update_time,
+        update_user,
+        create_time,
+        create_user
+    </sql>
+
+</mapper>

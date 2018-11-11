@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/cs_backend.iml" filepath="$PROJECT_DIR$/.idea/cs_backend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cs_common/cs_common.iml" filepath="$PROJECT_DIR$/cs_common/cs_common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cs_main/cs_main.iml" filepath="$PROJECT_DIR$/cs_main/cs_main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cs_manage/cs_manage.iml" filepath="$PROJECT_DIR$/cs_manage/cs_manage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cs_recommand/cs_recommand.iml" filepath="$PROJECT_DIR$/cs_recommand/cs_recommand.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cs_wx/cs_wx.iml" filepath="$PROJECT_DIR$/cs_wx/cs_wx.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cls.wx.shop.mapper.ShopInfoMapper">
+
+    <resultMap id="BaseResultMap" type="com.cls.wx.shop.entity.ShopInfo">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+
+        <result column="uid" property="uid" jdbcType="INT"/>
+        <result column="star_level" property="starLevel" jdbcType="INT"/>
+        <result column="sells_count" property="sellsCount" jdbcType="INT"/>
+        <result column="status" property="status" jdbcType="INT"/>
+        <result column="shop_name" property="shopName" jdbcType="VARCHAR"/>
+        <result column="short_introduction" property="shopIntroduction" jdbcType="VARCHAR"/>
+        <result column="type" property="type" jdbcType="INT"/>
+        <result column="phone_num" property="phoneNum" jdbcType="INT"/>
+        <result column="commodity_count" property="commodityCount" jdbcType="INT"/>
+        <result column="address_id" property="addressId" jdbcType="INT"/>
+        <result column="introduction" property="introduction" jdbcType="VARCHAR"/>
+
+        <result column="update_user" property="updateUser" jdbcType="INT"/>
+        <result column="update_time" property="updateTime" jdbcType="INT"/>
+        <result column="create_user" property="createUser" jdbcType="INT"/>
+        <result column="create_time" property="createTime" jdbcType="INT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,
+
+        sells_count,
+        star_level,
+        uid,
+        status,
+        shop_name,
+        short_introduction,
+        type,
+        phone_num,
+        commodity_count,
+        address_id,
+        introduction,
+
+        update_time,
+        update_user,
+        create_time,
+        create_user
+    </sql>
+
+    <update id="changeStatus">
+        UPDATE cs_shop_info
+        SET status = #{status}, update_time = #{updateTime}, update_user = #{updateUser}
+        WHERE id = #{id} AND create_user = #{updateUser}
+    </update>
+
+</mapper>

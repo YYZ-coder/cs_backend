@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!-- 加载properties文件 -->
+    <context:property-placeholder
+            location="classpath:properties/config.properties,classpath:log4j.properties" />
+
+    <context:component-scan base-package="com.cls.*"/>
+
+    <mvc:annotation-driven />
+
+    <!-- 配置durid数据源 -->
+    <bean id="dealerStatFilter" class="com.alibaba.druid.filter.stat.StatFilter">
+        <property name="slowSqlMillis" value="1000"/>
+        <property name="logSlowSql" value="true"/>
+        <property name="mergeSql" value="true"/>
+    </bean>
+    <bean id="dealerWallFilter" class="com.alibaba.druid.wall.WallFilter">
+        <property name="logViolation" value="true"/>
+        <property name="throwException" value="false"/>
+    </bean>
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
+          init-method="init" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+
+        <property name="defaultAutoCommit" value="false"/>
+        <property name="maxActive" value="${jdbc.pool.maxActive}"/>
+        <property name="minIdle" value="${jdbc.pool.minIdle}"/>
+        <property name="initialSize" value="${jdbc.pool.initialSize}"/>
+        <property name="maxWait" value="${jdbc.pool.maxWait}"/>
+        <property name="testWhileIdle" value="true"/>
+        <property name="testOnBorrow" value="false"/>
+        <property name="testOnReturn" value="false"/>
+        <property name="removeAbandoned" value="${jdbc.pool.removeAbandoned}"/>
+        <property name="removeAbandonedTimeout" value="${jdbc.pool.removeAbandonedTimeout}"/>
+        <property name="minEvictableIdleTimeMillis" value="${jdbc.pool.minEvictableIdleTimeMillis}"/>
+        <property name="timeBetweenEvictionRunsMillis" value="1800000"/>
+        <property name="proxyFilters">
+            <list>
+                <ref bean="dealerStatFilter"/>
+                <ref bean="dealerWallFilter"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean class="org.dozer.spring.DozerBeanMapperFactoryBean">
+        <property name="mappingFiles">
+            <list>
+                <value>classpath*:dozer/dozer-mapping.xml</value>
+            </list>
+        </property>
+    </bean>
+
+    <import resource="spring-mybatis.xml"/>
+    <import resource="spring-jedis.xml"/>
+    <import resource="spring-mvc.xml"/>
+
+</beans>

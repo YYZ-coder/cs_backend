@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- 静态资源处理 -->
+    <mvc:default-servlet-handler/>
+
+    <!-- 使用Annotation自动注册Bean,只扫描@Controller -->
+    <context:component-scan base-package="com.cls.*"/>
+
+    <!-- 文件上传:设置文件最大大小 -->
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
+          p:maxUploadSize="10485760"
+    />
+
+    <!-- shiro Filter -->
+    <!--<bean id = "shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager" />
+        <property name="filterChainDefinitions">
+            <value>
+                /* = anon
+                /user* = anon
+                /index*= anon
+            </value>
+        </property>
+    </bean>
+
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="authRealm"/>
+        <property name="cacheManager" ref="redisCacheManager"/>
+        <property name="rememberMeManager" ref = "rememberMeManager"/>
+    </bean>
+
+    &lt;!&ndash; 相当于调用SecurityUtils.setSecurityManager() &ndash;&gt;
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="staticMethod" value="org.apache.shiro.SecurityUtils.setSecurityManager"/>
+        <property name="arguments" ref="securityManager"/>
+    </bean>
+
+    &lt;!&ndash; RememberMe Cookie ：如果是浏览器登录，一般会把RememberMe 的 Cookie 写到客户端并保存下来 &ndash;&gt;
+    <bean id="rememberMeCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
+        <constructor-arg value="rememberMe"/>
+        <property name="httpOnly" value="true"/>
+        <property name="maxAge" value="2592000"/>
+    </bean>-->
+
+
+    <!-- MVC注解驱动 -->
+    <mvc:annotation-driven>
+        <!-- message Converters -->
+        <mvc:message-converters register-defaults="true">
+            <!-- 将StringHttpMessageConverter的默认编码设为UTF-8 -->
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <constructor-arg value="UTF-8" />
+            </bean>
+            <!-- 将Jackson2HttpMessageConverter的默认格式化输出设为true -->
+            <bean id = "jackson2HttpMessageConverter"
+                  class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
+    <!-- MVC拦截器 -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/wx/**"/>
+            <ref bean="gateWayInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+</beans>

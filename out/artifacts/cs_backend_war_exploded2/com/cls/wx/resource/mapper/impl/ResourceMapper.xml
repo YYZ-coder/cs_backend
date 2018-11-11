@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cls.wx.resource.mapper.ResourceMapper">
+
+    <resultMap id="BaseResultMap" type="com.cls.wx.resource.entity.PicInfo">
+        <id column="id" property="id" jdbcType="INT"/>
+
+        <result column="url" property="url" jdbcType="VARCHAR"/>
+        <result column="obj_id" property="objId" jdbcType="INT"/>
+        <result column="type" property="type" jdbcType="INT"/>
+        <result column="attribute" property="attribute" jdbcType="INT"/>
+
+        <result column="update_user" property="updateUser" jdbcType="INT"/>
+        <result column="update_time" property="updateTime" jdbcType="INT"/>
+        <result column="create_user" property="createUser" jdbcType="INT"/>
+        <result column="create_time" property="createTime" jdbcType="INT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,
+
+        url,
+        obj_id,
+        type,
+        attribute,
+
+        update_time,
+        update_user,
+        create_time,
+        create_user
+    </sql>
+
+    <update id="changeStatus">
+        UPDATE cs_resource_pic
+        SET status = #{status}, update_time = #{updateTime}, update_user = #{updateUser}
+        WHERE id = #{id} AND create_user = #{updateUser}
+    </update>
+
+</mapper>

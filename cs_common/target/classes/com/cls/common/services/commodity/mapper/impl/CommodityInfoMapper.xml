@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cls.common.services.commodity.mapper.CommodityInfoMapper">
+
+    <resultMap id="BaseResultMap" type="com.cls.common.services.commodity.entity.CommodityInfo">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+
+        <result column="status" property="status" jdbcType="INTEGER"/>
+        <result column="commodity_name" property="commodityName" jdbcType="VARCHAR"/>
+        <result column="short_introduction" property="shortIntroduction" jdbcType="VARCHAR"/>
+        <result column="price" property="commodityPrice" jdbcType="DECIMAL"/>
+        <result column="shop_id" property="shopId" jdbcType="INTEGER"/>
+        <result column="classes" property="classes" jdbcType="INTEGER"/>
+        <result column="category_id" property="categoryId" jdbcType="INTEGER"/>
+        <result column="introduction" property="introduction" jdbcType="VARCHAR"/>
+        <result column="inventory" property="inventory" jdbcType="INTEGER"/>
+        <result column="specifications" property="specifications" jdbcType="VARCHAR"/>
+
+        <result column="update_user" property="updateUser" jdbcType="INTEGER"/>
+        <result column="update_time" property="updateTime" jdbcType="BIGINT"/>
+        <result column="create_user" property="createUser" jdbcType="INTEGER"/>
+        <result column="create_time" property="createTime" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,
+        status,
+        commodity_name,
+        short_introduction,
+        price,
+        shop_id,
+        classes,
+        category_id,
+        introduction,
+        inventory,
+        specifications
+
+        update_time,
+        update_user,
+        create_time,
+        create_user
+    </sql>
+
+    <update id="changeStatus">
+        UPDATE cs_commodity_info
+        SET status = #{status}, update_time = #{updateTime}, update_user = #{updateUser}
+        WHERE id = #{id} AND create_user = #{updateUser}
+    </update>
+
+</mapper>

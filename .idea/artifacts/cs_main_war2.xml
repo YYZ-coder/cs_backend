@@ -1,0 +1,15 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="cs_main:war2">
+    <output-path>D:/cs_back_end/artifacts/cs_main_war2</output-path>
+    <root id="archive" name="cs_main_war.war">
+      <element id="artifact" artifact-name="cs_main:war exploded" />
+      <element id="module-output" name="cs_busn" />
+      <element id="module-output" name="cs_common" />
+      <element id="module-output" name="cs_recommand" />
+      <element id="module-output" name="cs_wx" />
+      <element id="module-output" name="cs_backend" />
+      <element id="module-output" name="cs_main" />
+      <element id="module-output" name="cs_manage" />
+    </root>
+  </artifact>
+</component>

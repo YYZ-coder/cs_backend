@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cls.wx.order.mapper.OrderInfoMapper">
+
+    <resultMap id="BaseResultMap" type="com.cls.wx.order.entity.OrderInfo">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+
+        <result column="address_id" property="addressId" jdbcType="INT"/>
+        <result column="trans_way" property="transWay" jdbcType="INT"/>
+        <result column="trans_price" property="transPrice" jdbcType="DECIMAL"/>
+        <result column="comm_count" property="commCount" jdbcType="INT"/>
+        <result column="bought_count" property="boughtCount" jdbcType="INT"/>
+        <result column="sum_price" property="sumPrice" jdbcType="DECIMAL"/>
+        <result column="user_id" property="userId" jdbcType="INT"/>
+        <result column="status" property="status" jdbcType="INT"/>
+
+        <result column="update_user" property="updateUser" jdbcType="INT"/>
+        <result column="update_time" property="updateTime" jdbcType="INT"/>
+        <result column="create_user" property="createUser" jdbcType="INT"/>
+        <result column="create_time" property="createTime" jdbcType="INT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,
+
+        address_id,
+        trans_way,
+        trans_price,
+        comm_count,
+        bought_count,
+        sum_price,
+        user_id,
+        status,
+
+        update_time,
+        update_user,
+        create_time,
+        create_user
+    </sql>
+
+    <update id="changeStatus">
+        UPDATE cs_order_info
+        SET status = #{status}, update_time = #{updateTime}, update_user = #{updateUser}
+        WHERE id = #{id} AND create_user = #{updateUser}
+    </update>
+
+</mapper>

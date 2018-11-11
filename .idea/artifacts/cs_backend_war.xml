@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="cs_backend:war">
+    <output-path>D:/cs_back_end</output-path>
+    <root id="archive" name="cs_backend.war">
+      <element id="artifact" artifact-name="cs_backend:war exploded" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: javax:javaee-api:7.0" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
