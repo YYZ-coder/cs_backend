@@ -1,0 +1,1092 @@
+{
+	"info": {
+		"_postman_id": "b8adcf49-74d1-366b-f27e-bee0f80c6c8b",
+		"name": "CS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "查询商品详情",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8899/wx/comm/queryComm",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8899",
+					"path": [
+						"wx",
+						"comm",
+						"queryComm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "查询当前店铺的商品List",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "uid",
+						"value": "2"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "shopId",
+							"value": "1",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "size",
+							"value": "10",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8899/wx/comm/queryComms",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8899",
+					"path": [
+						"wx",
+						"comm",
+						"queryComms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "查询当前商品的评论List",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "cid",
+							"value": "1",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8899/evaluate/querybycomm",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8899",
+					"path": [
+						"evaluate",
+						"querybycomm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "添加新的评论",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\":\"新增评论2\",\n    \"content\":\"bbbbb啊啊啊啊\",\n    \"type\":0,\n    \"userId\":1,\n    \"objId\":1,\n    \"starCount\":2\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8899/evaluate/addevalutocomm",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8899",
+					"path": [
+						"evaluate",
+						"addevalutocomm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "修改评论",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "uid",
+						"value": "2"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \n  \"id\":1,\n  \"title\":\"修改后的评论标题\",\n  \"content\":\"艾尔文\",\n  \"starCount\":5,\n  \"type\":0,\n  \"userId\":1,\n  \"objId\":1\n}"
+				},
+				"url": {
+					"raw": "localhost:8899/wx/evaluate/modifyevalu",
+					"host": [
+						"localhost"
+					],
+					"port": "8899",
+					"path": [
+						"wx",
+						"evaluate",
+						"modifyevalu"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "新增商品",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "token",
+						"value": "cfcd208495d565ef66e7dff9f98764da"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"commodityName\":\"八股文\",\n  \"shortIntroduction\":\"sawda科目\",\n  \"introduction\":\"sdsvv搜索\",\n  \"shopId\":1,\n  \"price\":100.1,\n  \"inventory\":100\n}"
+				},
+				"url": {
+					"raw": "localhost:8899/comm/addComm",
+					"host": [
+						"localhost"
+					],
+					"port": "8899",
+					"path": [
+						"comm",
+						"addComm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "查询当前用户的地址信息List",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "uid",
+						"value": "2"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "localhost:8899/wx/addrs/queryAll",
+					"host": [
+						"localhost"
+					],
+					"port": "8899",
+					"path": [
+						"wx",
+						"addrs",
+						"queryAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "删除地址信息",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "uid",
+						"value": "2"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "aid",
+							"value": "4",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8899/wx/addrs/delteAddress",
+					"host": [
+						"localhost"
+					],
+					"port": "8899",
+					"path": [
+						"wx",
+						"addrs",
+						"delteAddress"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "删除商品",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "uid",
+						"value": "2"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "commId",
+							"value": "1",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8899/comm/deleteComm",
+					"host": [
+						"localhost"
+					],
+					"port": "8899",
+					"path": [
+						"comm",
+						"deleteComm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "新增地址信息",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "uid",
+						"value": "2"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"type\":0,\n  \"province\":\"山西省\",\n  \"county\":\"tt去\",\n  \"city\":\"太原市\",\n  \"consigneeName\":\"啊啊啊\",\n  \"phoneNum\":\"17746627429\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8899/wx/addrs/new",
+					"host": [
+						"localhost"
+					],
+					"port": "8899",
+					"path": [
+						"wx",
+						"addrs",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "修改地址",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "uid",
+						"value": "2"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\":2,\n  \"pid\":2,\n  \"type\":0,\n  \"province\":\"vvv\",\n  \"county\":\"tt去\",\n  \"city\":\"鞍山\",\n  \"consigneeName\":\"啊啊啊\",\n  \"phoneNum\":\"17746627429\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8899/wx/addrs/modif",
+					"host": [
+						"localhost"
+					],
+					"port": "8899",
+					"path": [
+						"wx",
+						"addrs",
+						"modif"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "修改地址信息",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "uid",
+						"value": "2"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\":1,\n  \"pid\":2,\n  \"type\":0,\n  \"province\":\"北京\",\n  \"city\":\"市辖区\",\n  \"county\":\"海淀区\",\n  \"consigneeName\":\"安安\",\n  \"phoneNum\":\"13164660812\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8899/wx/addrs/modif",
+					"host": [
+						"localhost"
+					],
+					"port": "8899",
+					"path": [
+						"wx",
+						"addrs",
+						"modif"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "修改商品信息",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "uid",
+						"value": "2"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\":2,\n  \"commodityName\":\"修改的物品\",\n  \"shortIntroduction\":\"ascec\",\n  \"introduction\":\"afwevv而v\",\n  \"price\":11.01,\n  \"inventory\":199,\n  \"shopId\":1\n}"
+				},
+				"url": {
+					"raw": "localhost:8899/wx/comm/modifycomm",
+					"host": [
+						"localhost"
+					],
+					"port": "8899",
+					"path": [
+						"wx",
+						"comm",
+						"modifycomm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "新建店铺",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "uid",
+						"value": "2"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"shopName\":\"好又多\",\n  \"type\":3,\n  \"phoneNum\":\"13164660812\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8899/wx/sh/new",
+					"host": [
+						"localhost"
+					],
+					"port": "8899",
+					"path": [
+						"wx",
+						"sh",
+						"new"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "70985d3e-9940-4876-a6bc-83beca3843e1",
+					"name": "新建店铺",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "uid",
+								"value": "2"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"shopName\":\"好又多\",\n\t\"type\":3,\n\t\"phoneNum\":\"13164660812\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8899/wx/sh/new",
+							"host": [
+								"localhost"
+							],
+							"port": "8899",
+							"path": [
+								"wx",
+								"sh",
+								"new"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "新增行为",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "uid",
+						"value": "2"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "objId",
+							"value": "2",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "3",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8899/wx/behavr/addlik",
+					"host": [
+						"localhost"
+					],
+					"port": "8899",
+					"path": [
+						"wx",
+						"behavr",
+						"addlik"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "取消行为",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "uid",
+						"value": "2"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "objId",
+							"value": "7",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "0",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "behavior",
+							"value": "2",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8899/wx/behavior/cancl",
+					"host": [
+						"localhost"
+					],
+					"port": "8899",
+					"path": [
+						"wx",
+						"behavior",
+						"cancl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "删除店铺",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "uid",
+						"value": "2"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "sid",
+							"value": "2",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8899/wx/sh/delete",
+					"host": [
+						"localhost"
+					],
+					"port": "8899",
+					"path": [
+						"wx",
+						"sh",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "删除商品",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "uid",
+						"value": "2"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "commId",
+							"value": "2",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8899/wx/comm/deleteComm",
+					"host": [
+						"localhost"
+					],
+					"port": "8899",
+					"path": [
+						"wx",
+						"comm",
+						"deleteComm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "加载主页信息",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "swiperCount",
+							"value": "5",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "hotCount",
+							"value": "3",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "newsCount",
+							"value": "3",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "shopsCount",
+							"value": "3",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8899/wx/index/load",
+					"host": [
+						"localhost"
+					],
+					"port": "8899",
+					"path": [
+						"wx",
+						"index",
+						"load"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "news加载更多",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "size",
+							"value": "10",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8899/wx/index/morenews",
+					"host": [
+						"localhost"
+					],
+					"port": "8899",
+					"path": [
+						"wx",
+						"index",
+						"morenews"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "hot更多",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "size",
+							"value": "10",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://wx.criclesh.shop/wx/index/morehots",
+					"protocol": "https",
+					"host": [
+						"wx",
+						"criclesh",
+						"shop"
+					],
+					"path": [
+						"wx",
+						"index",
+						"morehots"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "shops加载更多",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "size",
+							"value": "10",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://wx.criclesh.shop/wx/index/moreshops",
+					"protocol": "https",
+					"host": [
+						"wx",
+						"criclesh",
+						"shop"
+					],
+					"path": [
+						"wx",
+						"index",
+						"moreshops"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "设置地址为默认",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "1",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8899/wx/addrs/setDefault",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8899",
+					"path": [
+						"wx",
+						"addrs",
+						"setDefault"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "购买状态",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "oid",
+							"value": "32",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "aid",
+							"value": "1",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "tid",
+							"value": "0",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8899/wx/behavior/tobought",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8899",
+					"path": [
+						"wx",
+						"behavior",
+						"tobought"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "查询正在购买订单",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "token",
+						"value": "c81e728d9d4c2f636f067f89cc14862c"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "type",
+							"value": "1",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8899/wx/comm/queryList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8899",
+					"path": [
+						"wx",
+						"comm",
+						"queryList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "收藏的商品",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "token",
+						"value": "c81e728d9d4c2f636f067f89cc14862c"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8899/wx/comm/queryliked",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8899",
+					"path": [
+						"wx",
+						"comm",
+						"queryliked"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "商铺收藏",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "token",
+						"value": "c81e728d9d4c2f636f067f89cc14862c"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8899/wx/sh/queryliked",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8899",
+					"path": [
+						"wx",
+						"sh",
+						"queryliked"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
