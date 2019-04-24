@@ -16,6 +16,9 @@
       <excludeFolder url="file://$MODULE_DIR$/target" />
       <excludeFolder url="file://$MODULE_DIR$/../recommand_end/target" />
     </content>
+    <content url="file://$MODULE_DIR$/../recommand_end/src/test/java">
+      <sourceFolder url="file://$MODULE_DIR$/../recommand_end/src/test/java" isTestSource="true" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Maven: com.github.abel533:ECharts:3.0.0" level="project" />
