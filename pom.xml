@@ -492,13 +492,13 @@
         <repository>
             <id>nexus-releases</id>
             <url>
-                http://172.17.103.59:8081/nexus/content/repositories/releases/
+                http://127.0.0.1:8080/nexus/content/repositories/releases/
             </url>
         </repository>
         <snapshotRepository>
             <id>nexus-snapshots</id>
             <url>
-                http://172.17.103.59:8081/nexus/content/repositories/snapshots/
+                http://127.0.0.1:8080/nexus/content/repositories/snapshots/
             </url>
         </snapshotRepository>
     </distributionManagement>
