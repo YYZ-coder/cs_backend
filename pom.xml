@@ -35,7 +35,7 @@
         <mapper.version>3.3.9</mapper.version>
         <spring-data-redis>1.8.3.RELEASE</spring-data-redis>
         <jedis.version>2.9.0</jedis.version>
-        <junit.version>3.8.1</junit.version>
+        <junit.version>4.13.1</junit.version>
         <protostuff.version>1.1.1</protostuff.version>
         <aspectj.version>1.7.4</aspectj.version>
         <lombok.version>1.16.10</lombok.version>
