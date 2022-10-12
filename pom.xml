@@ -40,7 +40,7 @@
         <aspectj.version>1.7.4</aspectj.version>
         <lombok.version>1.16.10</lombok.version>
         <dozer.version>5.4.0</dozer.version>
-        <shiro.version>1.2.4</shiro.version>
+        <shiro.version>1.10.0</shiro.version>
         <echart.version>3.0.0</echart.version>
 
     </properties>
